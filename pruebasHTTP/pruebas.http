@@ -1,0 +1,55 @@
+//Obtener 
+GET http://localhost:3000/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhc2V1c2VyIiwiaWF0IjoxNTcxNjkxNzM2LCJleHAiOjE1NzE3NzgxMzZ9.6KlagI62ih55pjE2Cw_kVQidFVFCNDqc4SZkzembijU
+
+###
+
+//accion que solo puede hacer una persona que tiene acceso de admin
+GET http://localhost:3000/AdminAction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTcxNjkxNzc4LCJleHAiOjE1NzE3NzgxNzh9.Ly5PRH1Y4wM-el5akgoOlAXcMxq5vZ1uFJ3yJvPhPY8
+###
+
+//Autenticarse admin
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "1234"
+}
+
+###
+
+//Autenticarse baseUser
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "username": "baseuser",
+    "password": "1234"
+}
+
+###
+
+//crear usuario
+//Roles admin
+POST http://localhost:3000/CreateUser
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "1234",
+    "role": "admin"
+}
+
+###
+
+//crear rol baseuser
+POST http://localhost:3000/CreateUser
+content-type: application/json
+
+{
+    "username": "baseuser",
+    "password": "1234",
+    "role": "baseuser"
+}
